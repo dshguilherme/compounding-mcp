@@ -1,0 +1,22 @@
+name: CI
+on:
+  push:
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - shell: bash
+        run: curl -fsSL https://raw.githubusercontent.com/escapeboy/boruna/master/install.sh | sh
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test
+      - run: pnpm exec npm pack --dry-run
+      - run: for d in workflows/swarm_*; do boruna workflow validate "$d"; done
+      - run: find workflows -name '*.ax' -print0 | xargs -0 -n1 boruna lang check --json

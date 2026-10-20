@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "name": "swarm-ancestry",
+  "version": "0.1.0",
+  "description": "GitSwarm ancestry: scope the informed_by graph for one commit.",
+  "steps": {
+    "ancestry": {
+      "kind": "source",
+      "source": "steps/ancestry.ax",
+      "capabilities": ["fs.read"],
+      "outputs": {
+        "result": "Int"
+      }
+    }
+  },
+  "edges": []
+}

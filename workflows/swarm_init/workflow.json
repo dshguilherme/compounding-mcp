@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "name": "swarm-init",
+  "version": "0.1.0",
+  "description": "GitSwarm v0 root: create swarm state from a pending spec.",
+  "steps": {
+    "init": {
+      "kind": "source",
+      "source": "steps/init.ax",
+      "capabilities": ["fs.write"],
+      "outputs": {
+        "result": "Int"
+      }
+    }
+  },
+  "edges": []
+}

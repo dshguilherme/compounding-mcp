@@ -1,0 +1,8 @@
+// Verify provenance fields before the MCP wrapper records the contribution.
+fn main() -> Int !{fs.read} {
+    let payload: String = fs_read(".boruna/swarm/swarm-stage/commit.json")
+    let has_parent: Bool = __builtin_string_contains(payload, "parent")
+    let has_sources: Bool = __builtin_string_contains(payload, "informed_by")
+    let has_score: Bool = __builtin_string_contains(payload, "score")
+    if has_parent && has_sources && has_score { 0 } else { 3 }
+}

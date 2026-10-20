@@ -1,0 +1,17 @@
+{
+  "name": "compounding-mcp",
+  "version": "0.1.0",
+  "description": "Model-agnostic MCP server for persistent, evidence-backed agent contributions, built on Boruna workflows.",
+  "type": "module",
+  "bin": { "compounding-mcp": "./src/server.js" },
+  "files": ["src/", "workflows/", "policy.json", "README.md", "LICENSE"],
+  "engines": { "node": ">=20" },
+  "keywords": ["mcp", "agents", "boruna", "compounding-inference", "scientific-computing", "gpu"],
+  "license": "MIT",
+  "dependencies": { "@modelcontextprotocol/sdk": "1.32.1" },
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test",
+    "check": "node --check src/server.js && node --test"
+  }
+}

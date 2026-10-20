@@ -1,0 +1,5 @@
+// Validate an abstention reason. Boruna keeps the release free of IO beyond this read.
+fn main() -> Int !{fs.read} {
+    let payload: String = fs_read(".boruna/swarm/swarm-stage/abstain.json")
+    if __builtin_string_contains(payload, "reason") { 0 } else { 2 }
+}

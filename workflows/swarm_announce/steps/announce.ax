@@ -1,0 +1,6 @@
+// Validate the staged worker announcement through Boruna's runtime gate.
+fn main() -> Int !{fs.read} {
+    let payload: String = fs_read(".boruna/swarm/swarm-stage/announce.json")
+    let worker: String = fs_read(".boruna/swarm/swarm-stage/worker.txt")
+    if __builtin_string_contains(payload, "deliverable") && __builtin_string_len(__builtin_string_trim(worker)) > 0 { 0 } else { 1 }
+}

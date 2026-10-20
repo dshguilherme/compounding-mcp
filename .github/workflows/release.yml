@@ -1,0 +1,28 @@
+name: Release
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: write
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - shell: bash
+        run: curl -fsSL https://raw.githubusercontent.com/escapeboy/boruna/master/install.sh | sh
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test
+      - run: pnpm exec npm pack
+      - run: for d in workflows/swarm_*; do boruna workflow validate "$d"; done
+      - run: find workflows -name '*.ax' -print0 | xargs -0 -n1 boruna lang check --json
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: compounding-mcp-*.tgz
+          generate_release_notes: true

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "name": "swarm-commit",
+  "version": "0.1.0",
+  "description": "GitSwarm contribute: validate provenance + score, record contribution.",
+  "steps": {
+    "commit": {
+      "kind": "source",
+      "source": "steps/commit.ax",
+      "capabilities": ["fs.read"],
+      "outputs": {
+        "result": "Int"
+      }
+    }
+  },
+  "edges": []
+}

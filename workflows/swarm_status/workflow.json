@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "name": "swarm-status",
+  "version": "0.1.0",
+  "description": "GitSwarm dashboard: read swarm state, render snapshot.",
+  "steps": {
+    "status": {
+      "kind": "source",
+      "source": "steps/status.ax",
+      "capabilities": ["fs.read"],
+      "outputs": {
+        "result": "Int"
+      }
+    }
+  },
+  "edges": []
+}

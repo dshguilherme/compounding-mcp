@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "name": "swarm-nominate",
+  "version": "0.1.0",
+  "description": "GitSwarm nominate: record one ballot with rationale.",
+  "steps": {
+    "nominate": {
+      "kind": "source",
+      "source": "steps/nominate.ax",
+      "capabilities": ["fs.read"],
+      "outputs": {
+        "result": "Int"
+      }
+    }
+  },
+  "edges": []
+}

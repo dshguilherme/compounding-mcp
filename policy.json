@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "default_allow": false,
+  "rules": {
+    "fs.read": { "allow": true, "budget": 0 },
+    "fs.write": { "allow": true, "budget": 0 }
+  },
+  "fs_policy": {
+    "allowed_roots": [".boruna/swarm"]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "name": "swarm-abstain",
+  "version": "0.1.0",
+  "description": "GitSwarm abstain: record rationale, release slot, no budget consumed.",
+  "steps": {
+    "abstain": {
+      "kind": "source",
+      "source": "steps/abstain.ax",
+      "capabilities": ["fs.read"],
+      "outputs": {
+        "result": "Int"
+      }
+    }
+  },
+  "edges": []
+}

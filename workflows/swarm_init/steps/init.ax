@@ -1,0 +1,7 @@
+// swarm_init — initialize an empty v0 marker through Boruna's fs gateway.
+// The MCP wrapper owns the typed spec and state records; Boruna adds an
+// auditable capability-gated marker beside them.
+fn main() -> Int !{fs.write} {
+    let ok: Bool = fs_write(".boruna/swarm/swarm-stage/boruna-init.json", "{\"state\":\"initialized\"}")
+    if ok { 0 } else { 1 }
+}

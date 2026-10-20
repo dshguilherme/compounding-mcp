@@ -1,0 +1,5 @@
+// Read the staged swarm state. The Node MCP wrapper returns the structured JSON.
+fn main() -> Int !{fs.read} {
+    let state: String = fs_read(".boruna/swarm/swarm-stage/state.json")
+    if __builtin_string_contains(state, "swarm_id") { 0 } else { 1 }
+}

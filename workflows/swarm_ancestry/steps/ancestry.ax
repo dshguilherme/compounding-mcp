@@ -1,0 +1,5 @@
+// Validate that the ancestry query names a candidate SHA.
+fn main() -> Int !{fs.read} {
+    let query: String = fs_read(".boruna/swarm/swarm-stage/query.json")
+    if __builtin_string_contains(query, "candidate_sha") { 0 } else { 2 }
+}

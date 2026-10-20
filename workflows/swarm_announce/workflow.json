@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "name": "swarm-announce",
+  "version": "0.1.0",
+  "description": "GitSwarm in-flight: worker announces scope before editing.",
+  "steps": {
+    "announce": {
+      "kind": "source",
+      "source": "steps/announce.ax",
+      "capabilities": ["fs.read"],
+      "outputs": {
+        "result": "Int"
+      }
+    }
+  },
+  "edges": []
+}

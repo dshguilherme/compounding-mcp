@@ -1,0 +1,7 @@
+// Validate candidate and rationale. Boruna does not modify candidate source.
+fn main() -> Int !{fs.read} {
+    let payload: String = fs_read(".boruna/swarm/swarm-stage/nominate.json")
+    let has_sha: Bool = __builtin_string_contains(payload, "candidate_sha")
+    let has_rationale: Bool = __builtin_string_contains(payload, "rationale")
+    if has_sha && has_rationale { 0 } else { 2 }
+}
