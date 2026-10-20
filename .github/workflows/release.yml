@@ -20,6 +20,8 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm test
       - run: pnpm exec npm pack
+      - run: pnpm exec npm install --global ./compounding-mcp-0.1.0.tgz
+      - run: command -v compounding-mcp
       - run: for d in workflows/swarm_*; do boruna workflow validate "$d"; done
       - run: find workflows -name '*.ax' -print0 | xargs -0 -n1 boruna lang check --json
       - uses: softprops/action-gh-release@v2
